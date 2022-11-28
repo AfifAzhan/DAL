@@ -1,0 +1,46 @@
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Date Type</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" step=any name="minor_axis" placeholder="Minor Axis" required="required" />
+    	<input type="number" step=any name="extent" placeholder="Extent" required="required" />
+    	<input type="number" step=any name="aspect_ratio" placeholder="Aspect Ratio" required="required" />
+    	<input type="number" step=any name="roundness" placeholder="Roundness" required="required" />
+    	<input type="number" step=any name="std_dev_rg" placeholder="StdDevRG" required="required" />
+    	<input type="number" step=any name="skew_rb" placeholder="SkewRB" required="required" />
+    	<input type="number" step=any name="kurtosis_rg" placeholder="KurtosisRG" required="required" />
+        <input type="number" step=any name="kurtosis_rb" placeholder="KurtosisRB" required="required" />    
+        <input type="number" step=any name="all_daub_4rr" placeholder="ALLdaub4RR" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html># -*- coding: utf-8 -*-
+"""
+Created on Tue Nov  8 19:43:34 2022
+
+@author: popo
+"""
+
